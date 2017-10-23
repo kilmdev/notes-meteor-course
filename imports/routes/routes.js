@@ -39,7 +39,7 @@ export const onAuthChange = (isAuthenticated) => {
     const isUnauthenticatedPage = unauthenticatedPages.includes(pathname);
     const isAuthenticatedPage = authenticatedPages.includes(pathname);
 
-    //if on unathenticated page and logged in, redirect to /links
+    //if on unauthenticated page and logged in, redirect to /links
     //if on authenticated page and NOT logged in, redirect to /
     if (isUnauthenticatedPage && isAuthenticated) {
         browserHistory.replace('/dashboard');
@@ -56,6 +56,7 @@ export const routes = (
         <Route path='/' component={ Login } onEnter={ onEnterPublicPage }/>
         <Route path='/signup' component={ Signup } onEnter={ onEnterPublicPage }/>
         <Route path='/dashboard' component={ Dashboard } onEnter={ onEnterPrivatePage }/>
+        <Route path='/dashboard/:id' component={ Dashboard } onEnter={ onEnterPrivatePage }/>
         <Route path='*' component={ NotFound } />
     </Router>
 );
